@@ -10,6 +10,6 @@ const dogs = require("./Dog");
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 router.use("/dogs", dogs);
-router.use("/", temperament);
+router.use("/temperament", temperament);
 
 module.exports = router;
