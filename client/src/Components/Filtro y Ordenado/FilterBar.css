@@ -1,0 +1,54 @@
+ .filter-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 10px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+select:hover {
+  border-color: #888;
+}
+
+select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+option {
+  font-size: 16px;
+}
+
+.filter-label {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.filter-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  background-color: #0056b3;
+}

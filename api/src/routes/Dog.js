@@ -13,24 +13,8 @@ router.get("/", getdogsAll)
 //! RUTA PARA OBTENER PERROS POR NAME
 router.get("/name", getNameDogs)
 //! RUTA PARA PERRO POR ID
-router.get("/:idRaza", getIDDogs)
+router.get("/:id", getIDDogs)
 //! RUTA PARA CREAR PERROS
 router.post("/", postdogsAll);
-/*
-router.post("/dogs", async (req, res) => {
-  const { name, height, weight, yearsLife, image, temperaments } = req.body;
-  try {
-    const newDog = await Dog.create({
-        image,
-        name,
-        height,
-        weight,
-        yearsLife
-    })
-    newDog.addTemperaments(temperaments);
-    return res.status(200).json(newDog);
-} catch (error) {
-    return res.status(500).json({error: error.message});
-}
-})*/
+
 module.exports = router;

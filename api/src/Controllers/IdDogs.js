@@ -6,21 +6,58 @@ const { Dog, Temperament } = require("../db");
 
 const URL = `https://api.thedogapi.com/v1/breeds`;
 
-
 const getIDDogs = async (req, res) => {
-    const { idRaza } = req.params;
-    try {
-      const apiDog = await axios.get(`${URL}/${idRaza}`
-      );
-  
-      const dog = apiDog.data;
-      if (dog) {
-        res.status(200).json(dog);
-      } else {
-        res.status(404).json({ error: "Raza no encontrada" });
+  try {
+    const { id } = req.params;
+    const resultDogs = await axios.get(`${URL}`);
+    const allDogs = resultDogs.data;
+    const dogsMap = [];
+    allDogs.forEach((dog) => {
+      const newDog = {
+        id: dog.id,
+        name: dog.name,
+        weight: dog.weight.imperial,
+        height: dog.height.imperial,
+        yearsLife: dog.yearsLife,
+        image: dog.image.url,
+        temperament: dog.temperament,
+      };
+      dogsMap.push(newDog);
+    });
+
+    const dogsApi = dogsMap.find((dog) => dog.id === Number(id));
+    let resDb;
+
+    if (!dogsApi) {
+      const dogDb = await Dog.findByPk(id, {
+        include: [
+          {
+            model: Temperament,
+            attributes: ["name"],
+            through: {
+              attributes: [],
+            },
+          },
+        ],
+      });
+
+      if (dogDb) {
+        resDb = {
+          id: dogDb.id,
+          name: dogDb.name,
+          weight: dogDb.weight,
+          height: dogDb.height,
+          yearsLife: dogDb.yearsLife,
+          image: dogDb.image,
+          temperaments: dogDb.Temperaments.map((temp) => temp.name),
+        };
       }
-    } catch (error) {
-      res.status(400).json({ error: error.message });
     }
-  };
-  module.exports = getIDDogs
+
+    res.status(200).json(dogsApi || resDb);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+module.exports = getIDDogs;
