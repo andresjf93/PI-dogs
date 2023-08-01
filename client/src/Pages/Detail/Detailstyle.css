@@ -1,46 +1,55 @@
 .main-container {
   display: flex;
-  flex-direction: column;
+  margin: 179px;
+  padding: 13px 7px;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
+  color: rgb(201 163 57);
+  background-color: rgb(59 59 84);
+  border-radius: 26px;
+  border: 6px #bfa421 solid;
+  margin-top: 32px;
+  text-align: center;;
 }
-.main-container h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
-  }
 
-.image-container {
-  width: 300px;
-  height: 300px;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+.id{ 
+  color: rgb(201 163 57);;
+  margin: 6px 28px;
+  font-size: 36px;
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 3px rgb(0, 0, 0) solid;
+}
+.botonhome{
+  margin-top: 30px;
 }
 
 .imagen {
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 4px;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: cover;
 }
 
 
-.details-container {
-  margin-top: 20px;
-  text-align: center;
-}
 
-.details-container h1 {
+.main-container h1 {
   font-size: 32px;
   margin-bottom: 8px;
 }
 
-
-.details-container h2 {
+.main-container h2 {
   font-size: 20px;
   color: #ffffff;
 }
 
-.details-container h3 {
+.main-container h3 {
   font-size: 20px;
   margin-bottom: 8px;
 }
@@ -48,4 +57,15 @@
 error-message {
   color: red;
   font-size: 20px;
+}
+.botonhome:hover {
+  background-color: transparent;
+  padding: 32px 32px;
+}
+.botonhome {
+  padding: 27px 27px;
+  border-radius: 9px;
+  background-color: transparent;
+  background-image: url(C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Pages\Detail\house-chimney-solid.svg);
+  background-repeat: no-repeat;
 }

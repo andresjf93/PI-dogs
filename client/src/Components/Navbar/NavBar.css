@@ -1,34 +1,141 @@
-.navbar {
+.menu {
+	background: #3D3D3D;
+	color: #FFF;
+	height: 46px;
+	padding-left: 10px;
+	border-radius: 13px;
+	border: 5px solid #787878;
+  
+}
+.menu li {
+    margin: 25px;
+    padding: 22px;
+    list-style: none;
+
+}
+.menu ul {
+	width: 100%;
+}
+.menu li {
+    float: left;
     display: flex;
+    position: relative;
     align-items: center;
-    justify-content: space-between;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-  }
-  
-  .logo {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .searchbar {
+}
+
+.menu a {
     display: flex;
-    align-items: center;
-  }
-  
-  .searchbar input {
-    padding: 5px;
-    margin-right: 10px;
+    line-height: 50px;
+    padding: 0px 17px;
+    text-decoration: none;
+    color: #FFAE36;
+    font-size: 19px;
+    text-transform: capitalize;
+}
+.menu a.dropdown-arrow:after {
+	content: "\25BE";
+	margin-left: 5px;
+}
+.menu li a:hover {
+	color: #CCCCCC;
+	background: #4D4D4D;
+}
+.menu b {
+    display:block;
+    padding: 20px 0px;
+    text-decoration: none;
+    color: #FFAE36;
+    font-size: 19px;
+    text-transform: capitalize;
+}
+.menu b.dropdown-arrow:after {
+	content: "\25BE";
+	margin-left: 5px;
+}
+.menu li b:hover {
+	color: #CCCCCC;
+	background: #4D4D4D;
+}
+
+.logo {
+	margin: 25px;
+    display: flex;
+    position: absolute;
+    padding: 18px;
+    background-color: #FFAE36;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+  background-image: url(C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Components\Navbar\shield-dog-solid.svg);
+}
+
+.imputsearch {
+    position: relative;
+    left: 9px;
+    bottom: -12px;
+    width: 107%;
     border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .searchbar button {
-    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: 20px;
+}
+
+.searchboton {
+    position: relative;
+    left: 33px;
+    bottom: -12px;
+    padding: 6px 11px;
     background-color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     color: #333;
-  }
+}
+
+.menu label {
+	display: none;
+	line-height: 36px;
+	text-align: center;
+	position: absolute;
+	left: 35px
+}
+.menu label:before {
+	font-size: 1.6em;
+	content: "\2261"; 
+	margin-left: 20px;
+}
+.menu ul.sub-menus{
+	height: auto;
+	overflow: hidden;
+	width: 170px;
+	background: #444444;
+	position: absolute;
+	z-index: 99;
+	display: none;
+}
+.menu ul.sub-menus li {
+	display: block;
+	width: 100%;
+}
+.menu ul.sub-menus b {
+	color: #FFAE36;
+	font-size: 15px;
+	text-transform: capitalize;
+}
+.menu li:hover ul.sub-menus {
+	display: block
+}
+.menu ul.sub-menus b:hover{
+	background: #4D4D4D;
+	color: #CCCCCC;
+}
+@media screen and (max-width: 800px){
+	.menu {position:relative}
+	.menu ul {background:#111;position:absolute;top:100%;right:0;left:0;z-index:3;height:auto;display:none}
+	.menu ul.sub-menus {width:100%;position:static;}
+	.menu ul.sub-menus a {padding-left:30px;}
+	.menu li {display:block;float:none;width:auto;}
+	.menu input:checked + label {color:white}
+	.menu input:checked + label:before {content:"\00d7"}
+	.menu input:checked ~ ul {display:block}
+}

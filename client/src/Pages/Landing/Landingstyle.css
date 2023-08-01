@@ -17,18 +17,17 @@
   margin-bottom: 70px;
 }
 
-.landing-page button {
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #007bff;
-  color: #000000;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  
+.boton {
+  padding: 27px 27px;
+  border-radius: 9px;
+  background-color: transparent;
+  background-image: url(C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Pages\Landing\paw-solid.svg);
+  background-repeat: no-repeat;
+
 }
 
 .landing-page button:hover {
-  background-color: #0056b3;
+  background-color: transparent;
+  padding: 32px 32px;
 }
 

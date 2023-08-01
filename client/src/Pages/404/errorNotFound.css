@@ -1,0 +1,14 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .header {
+    font-size: 60px;
+    color: #f00; /* Puedes cambiar el color a tu preferencia */
+  }
+  
+  .subHeader {
+    font-size: 24px;
+  }
+  

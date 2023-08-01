@@ -1,84 +1,41 @@
-.card{
-    border: 8px solid rgba(0, 0, 0, 0.877);
-    width: 200px;
-    background-color: rgba(211, 214, 48, 0.877);
-    color: rgb(182, 100, 6);
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: stretch;
-    
-  }
-  .card:active{
-    background-color: #be7b16;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
-  img{
-    padding: 0px;
-    margin: -1px;
-    height: 181px;
-    width: 187px;
-    border-radius: 12%;
+
+/* Estilos para cada card */
+.card {
+  width: 250px; /* Ajusta el ancho deseado para cada card */
+  height: 360px; /* Ajusta el alto deseado para cada card */
+  border: 5px solid orange;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px; /* Espaciado entre las cards, puedes ajustarlo según tu preferencia */
+  display: flex;
+  flex-direction: column;
   
-  }
-  h2{
-    display: flex;
-    padding: 11px;
-    margin-top: 17%;
-    flex-direction: row;
-    justify-content: center;
-    color: white;
-    background-color: #333;
-  }
-  h3{
-    max-width: 100%;
-      font-size: 90%;
-  }
-  .container-card {
-    display: flex;
-    background-color: gray;
-    display: flex;
-    padding: 9px;
-    align-items: center;
-    height: 20px;
-    flex-direction: row;
-    justify-content: space-between;
-    border-bottom-left-radius: 13px;
-    border-bottom-right-radius: 16px;
-    color: white;
-      
-  
-    }
-    
-    .box {
-      flex: 1 1;
-      padding: 5px;
-      margin-right: 24px;
-      border-radius: 15%;
-    }
-    
-  .button-close{
-    background-color: #f44336;
-    padding: 0px 5px;
-    margin: 0.29%;
-    display: flex;
-    flex-direction: row-reverse;
-    align-self: flex-end;
-    position: absolute;
-  }
-  .button-close:hover{
-    color: black;
-  }
-  a {
-    text-decoration: none; /* Quitar subrayado y coloreado azul del enlace */
-    text-decoration-color: none
-  }
-  
-  .no-link-color {
-    text-decoration-color: none;
-  }
-  
-  
-  
+}
+
+/* Estilos para la imagen dentro de la card */
+.card img {
+  width: 100%;
+  height: 200px; /* Ajusta la altura de la imagen según tus necesidades */
+  object-fit: cover; /* Ajusta el recorte de la imagen para que se ajuste al contenedor */
+  border-radius: 5px;
+  margin-bottom: 10px; /* Espaciado entre la imagen y el resto del contenido */
+}
+
+/* Estilos para el título y los párrafos dentro de la card */
+.card h2 {
+  margin: 0;
+  font-size: 16px;
+  background-color: orange;
+}
+.card h3{
+  background-color: grey;
+   width: 250px; /* Ajusta el ancho deseado para cada card */
+  height: 360px;
+  margin: 0;
+}
+.card h4{
+  margin: 0;
+  width: 245px; /* Ajusta el ancho deseado para cada card */
+  height: 360px;
+  border: 3px solid orange;
+}

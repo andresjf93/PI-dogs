@@ -49,7 +49,7 @@ const getIDDogs = async (req, res) => {
           height: dogDb.height,
           yearsLife: dogDb.yearsLife,
           image: dogDb.image,
-          temperaments: dogDb.Temperaments.map((temp) => temp.name),
+          temperaments: dogDb.temperaments.map((temp) => temp.name),
         };
       }
     }

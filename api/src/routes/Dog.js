@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { Router } = require("express");
-const { Dog, Temperament } = require("../db");
+const { Dog, temperament } = require("../db");
 const getdogsAll = require("../Controllers/DogsAll")
 const getIDDogs = require('../Controllers/IdDogs');
 const getNameDogs = require('../Controllers/nameDogs');

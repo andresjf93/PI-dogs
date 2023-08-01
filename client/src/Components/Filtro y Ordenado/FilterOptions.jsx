@@ -1,41 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import "./FilterBar.css";
 import { useDispatch, useSelector } from "react-redux";
-import { filterTemperaments, resetFilterAll, setOrder, sortByWeight } from "../../Redux/actions";
+import { setOrder, setOrderWeight, fetchTemperaments , filterTemperament} from "../../Redux/actions";
 
 const FilterOptions = () => {
-  const temperament = useSelector( state => state.temperaments );
   const dispatch = useDispatch();
-  const display = useSelector( state => state.displayState );
+  const allTemperaments = useSelector((state) => state.temperament);
+  const [selectedTemperaments, setSelectedTemperaments] = useState("");
+  
+  useEffect(() => {
+    dispatch(fetchTemperaments());
+  }, []);
+  
+  const handleSelectChange = (event) => {
+    dispatch(filterTemperament(event.target.value))
+  };
 
-  const handlefilter = (e) => {
-    if(e.currentTarget.name === "temperaments") {
-        const temperamentSearch = e.target.value;
-        dispatch(filterTemperaments(temperamentSearch));
-}
-  }
+
   const handleAtoZ = (event) => {
     const { value } = event.target;
     dispatch(setOrder(value));
   };
+  
   const handleWeight = (event) => {
     const { value } = event.target;
-    dispatch(sortByWeight(value));
+    dispatch(setOrderWeight(value));
   };
 
   return (
     <div className="filter-options">
-      <nav>
-        <select
-          name="temperament"
-          onChange={handlefilter}
-          defaultValue={"DEFAULT"}
-        >{
-          Array.isArray(temperament) && temperament?.map( (temperament, index) => {
-              return <option value={temperament.name} key={index}>{temperament.name}</option>
-          }) 
-      }
-  </select>
+      <nav className='barr'>
+        <select value={selectedTemperaments} onChange={handleSelectChange}>
+          {allTemperaments.map((temperament) => (
+            <option key={temperament.id} value={temperament.name}>
+              {temperament.name}
+            </option>
+          ))}
+        </select>
+        <select onChange="">
+          <option value="api">API</option>
+          <option value="baseDeDatos">Base de Datos</option>
+        </select>
         <select
           name="orden alfabetico"
           onChange={handleAtoZ}
@@ -45,10 +50,15 @@ const FilterOptions = () => {
           <option value="A">A-z</option>
           <option value="D">Z-a</option>
         </select>
-        <select onChange={handleWeight} name="weight">
-                    <option value="minimun">Minimun</option>
-                    <option value="maximum">Maximum</option>
-                    </select>
+        <select className='selectmutiple'
+          name="orden por peso"
+          onChange={handleWeight}
+          defaultValue={"DEFAULT"}
+        >
+          <option value="DEFAULT">Seleccionar Orden:</option>
+          <option value="minWEIGHT">Mínimo</option>
+          <option value="WEIGHT">Máximo</option>
+        </select>
       </nav>
     </div>
   );

@@ -14,10 +14,11 @@ function Cards() {
   let cantPage = Math.ceil(dogs.length / cantDogPage); // Usamos Math.ceil en lugar de Math.floor
   const viewDogs = dogs?.slice(desde, hasta);
  
-  
+    console.log(dogs)
+    
   return (
     <div>
-      <div className="cards-container">
+      <div  className="cards-container">
         {viewDogs.map((dog) => (
           <DogCard key={dog.id} dog={dog} />
         ))}

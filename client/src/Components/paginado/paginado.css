@@ -1,14 +1,14 @@
 /* Paginate.css */
 
 .paginate {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-evenly;
-    background-color: #333;
-    color: #fff;
-    padding: 7px;
-    flex-direction: row;
-    flex-wrap: nowrap;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  background-color: #333;
+  color: #fff;
+  padding: 7px;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
   
   

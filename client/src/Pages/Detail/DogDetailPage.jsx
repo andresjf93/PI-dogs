@@ -19,22 +19,23 @@ const DogDetailPage = () => {
   }, [id]);
 
   return (
+    <div>
+    <div><Link  to={"/home"}>
+    <button className="botonhome"></button>
+  </Link></div>
     <div className="main-container"> 
-     <Link className="boton.home" to={"/home"}>
-        <button>Home</button>
-      </Link>
-      <h3>Id: {id}</h3>
+      <div className=" id"> ID: {id}</div>
        <div className="image-container">
-      <img className="imagen" src={dogs.image?.url} alt={dogs.name}></img>
+      <img className="imagen" src={dogs.image} alt={dogs.name}></img>
     </div>
     <div className="details-container">
       <h1>{dogs.name}</h1>
       <h2>Temperamentos: {dogs.temperament}</h2>
-      <h3>Altura: {dogs.weight?.metric}</h3>
-      <h3>Peso: {dogs.height?.metric}</h3>
+      <h3>Altura: {dogs.weight} CM</h3>
+      <h3>Peso: {dogs.height} KG</h3>
       <h3>Años de vida: {dogs.life_span}</h3>
     </div>
-   
+   </div>
   </div>
 )
   }

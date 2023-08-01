@@ -6,19 +6,19 @@ import {
   SET_ORDER_WEIGHT,
   SEARCH_DOGS,
   CREATE_DOG,
-  GET_TEMPERAMENTS,
-  RESET_FILTERS,
-  FILTER_TEMPERAMENTS,
+  FETCH_TEMPERAMENTS_SUCCESS,
+  FILTER_BY_TEMPERAMENT,
+  SEARCH_DOGS_REDUX,
 } from "./actionTypes";
-import axios from "axios";
 
 const initialState = {
   origDogs: [], // Array con las razas de perros obtenidas desde la API o la base de datos
   Dogs: [],
   Search: [], // Filtro aplicado para la búsqueda por nombre
   numPage: 1,
-  temperaments: [],
-  dogsCreate: [],
+  temperament: [],
+  loading: false,
+  error: null,
 };
 
 const allDogs = (state = initialState, action) => {
@@ -30,35 +30,42 @@ const allDogs = (state = initialState, action) => {
         Dogs: action.payload,
       };
     case SEARCH_DOGS:
+      console.log(state.Dogs);
       return {
         ...state,
         Dogs: [...action.payload],
-      }
-      case CREATE_DOG:
-        return {
-            ...state,
-            temperaments: action.payload
-        }
-        case GET_TEMPERAMENTS:
-          return {
-              ...state,
-              temperaments: action.payload
-          }
-          case FILTER_TEMPERAMENTS: 
-            let resultTemperaments;
-            if(state.displayState.all) resultTemperaments = state.origDogs.filter( dog => dog.temperaments.includes(action.payload));
-            if(state.displayState.api) resultTemperaments = state.Dogs.filter( dog => dog.temperaments.includes(action.payload));
-            if(state.displayState.create) resultTemperaments = state.dogsCreate.filter( dog => dog.temperaments.includes(action.payload));
-            return {
-                ...state,
-                Dogs: resultTemperaments
-                
-               
-            }
+      };
+    case SEARCH_DOGS_REDUX:
+      return {
+        ...state,
+        Dogs: [...action.payload],
+      };
+    case CREATE_DOG:
+      return {
+        ...state,
+        Dogs: [action.payload, ...state.Dogs],
+        origDogs: [action.payload, ...state.origDogs],
+      };
+    case FILTER_BY_TEMPERAMENT:
+      return {
+        ...state,
+        Dogs: [...state.origDogs].filter((dogfil) =>
+          dogfil.temperament
+            ? dogfil.temperament.includes(action.payload)
+            : null
+        ),
+      };
+    case FETCH_TEMPERAMENTS_SUCCESS:
+      return {
+        ...state,
+        temperament: action.payload,
+        loading: false,
+        error: null,
+      };
     case ORDER_A_Z:
       return {
         ...state,
-        Dogs: [...state.origDogs].sort((a, b) => {
+        Dogs: [...state.Dogs].sort((a, b) => {
           if (action.payload === "A") {
             if (a.name > b.name) {
               return 1;
@@ -79,33 +86,22 @@ const allDogs = (state = initialState, action) => {
         }),
       };
     case SET_ORDER_WEIGHT:
-      let resultWeight;
-      // funcion que me ordena la data y le paso si es minimo o máximo
-      let order = (data,typeOrder) => {
-          return data.sort( (a,b) => {
-              if(typeOrder === "minimun") {
-                  return Number(a.weight.split("-")[1]) - Number(b.weight.split(" - ")[1]) 
-              } else {
-                  return Number(b.weight.split("-")[1]) - Number(a.weight.split(" - ")[1])
-              }
-          })
-      }
-
-      if(state.displayState.all) {
-          //console.log("tipo:", payload);
-          resultWeight = order(state.origDogs,action.payload);
-      } 
-      if(state.displayState.api) {
-          resultWeight = order(state.Dogs,action.payload);
-      } 
-      if(state.displayState.create) {
-          resultWeight = order(state.dogsCreate,action.payload);
-      } 
+      let orderWeight = [...state.Dogs];
       return {
-          ...state,
-          Dogs: resultWeight
-       
-      }
+        ...state,
+        Dogs:
+          action.payload === "WEIGHT"
+            ? orderWeight.sort(
+                (a, b) =>
+                  Number(b.weight.split("-")[1]) -
+                  a.weight.split("-")[1]
+              )
+            : orderWeight.sort(
+                (a, b) =>
+                  Number(a.weight.split("-")[1]) -
+                  b.weight.split("-")[1]
+              ),
+      };
     case PREV:
       // Reducir el número de página actual en 1
       return {

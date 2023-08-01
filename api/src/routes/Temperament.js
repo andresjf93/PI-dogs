@@ -3,7 +3,7 @@ const { Router } = require("express");
 const Sequelize = require("sequelize");
 const axios = require("axios");
 const { API_KEY } = process.env;
-const {Temperament} = require("../db");
+const {temperament} = require("../db");
 const getTemperaments = require("../Controllers/getTemperament");
 
 const router = Router();

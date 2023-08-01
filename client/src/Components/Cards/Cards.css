@@ -1,27 +1,18 @@
+/* Estilos para el contenedor de las tarjetas */
 .cards-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: flex-start;
-
-  }
-
-.pagination button {
-  background-color: #f2f2f2;
-  border: 1px solid #ddd;
-  color: #444;
-  cursor: pointer;
-  padding: 4px 8px;
-  margin: 0 4px;
-  transition: background-color 0.3s ease;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-.pagination button:hover {
-  background-color: #0056b3;
+/* Estilos para la paginación */
+.pagination {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
 }
 
-.pagination button.active {
-  background-color: #007bff;
-  color: #fff;
+/* Estilos para los botones de la paginación */
+.paginate {
+  margin: 0 5px;
 }

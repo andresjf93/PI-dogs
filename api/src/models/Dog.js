@@ -6,12 +6,16 @@ module.exports = (sequelize) => {
     {
       id: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
+        autoIncrement:true,
+        primaryKey:true,
+      
+        
+       
       },
       image: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: true, 
+        defaultValue: "https://hips.hearstapps.com/hmg-prod/images/gettyimages-57350310-64884f6c47965.jpg"
       },
       name: {
         type: DataTypes.STRING,
@@ -20,12 +24,24 @@ module.exports = (sequelize) => {
       height: {
         type: DataTypes.STRING,
         allowNull: false,
+        get() {
+          return JSON.parse(this.getDataValue('height'))
+        },
+        set(value) {
+          this.setDataValue('height', JSON.stringify(value))
+        }
       },
       weight: {
         type: DataTypes.STRING,
         allowNull: false,
+        get() {
+          return JSON.parse(this.getDataValue('weight'))
+        },
+        set(value) {
+          this.setDataValue('weight', JSON.stringify(value))
+        }
       },
-      yearsLife: {
+      life_span: {
         type: DataTypes.STRING,
         allowNull: false,
       },
