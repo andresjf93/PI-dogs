@@ -16,7 +16,6 @@ function DogCard({ dog }) {
       <div className='dogstex'>Temperaments: {temperament}
       <  > 
       </ >
-
       <> 
       </>        Peso: {weight} KG</div>
     </Atropos>

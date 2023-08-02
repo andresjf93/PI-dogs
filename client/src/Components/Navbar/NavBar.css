@@ -39,6 +39,7 @@
 	margin-left: 5px;
 }
 .menu li a:hover {
+	transition: 2s;
 	color: #CCCCCC;
 	background: #4D4D4D;
 }

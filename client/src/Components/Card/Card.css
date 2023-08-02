@@ -22,6 +22,7 @@
 .namedog {
   margin: 0;
   font-size: 16px;
+  font-family: 'dede';
   background-color: orange;
 }
 
@@ -29,13 +30,21 @@
    width: 250px; 
   height: 360px;
   margin: 0;
+  
   color: white;
   border: 3px solid #ffa23e;
   border-end-end-radius: 50%;
+  font-family: 'dede';
 }
 .dogstex2{
   width: 250px; 
  height: 360px;
  margin: 0;
- color: white
+ color: white;
+ font-family: 'dede';
 }
+@font-face {
+  font-family: 'dede';
+    src: url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap') format('woff2'),
+    url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap') format('woff');
+  }
