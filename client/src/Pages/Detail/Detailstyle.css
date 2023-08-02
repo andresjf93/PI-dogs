@@ -1,19 +1,20 @@
 .main-container {
   display: flex;
-  margin: 179px;
-  padding: 13px 7px;
+  margin: 66px;
+  padding: 40px 1px;
   justify-content: center;
   align-items: center;
-  color: rgb(201 163 57);
-  background-color: rgb(59 59 84);
+  color: solid #ffa23e;;
+  background-color: #212121;
   border-radius: 26px;
-  border: 6px #bfa421 solid;
+  border: 6px solid #ffa23e;;
   margin-top: 32px;
   text-align: center;;
 }
 
 .id{ 
-  color: rgb(201 163 57);;
+  font-family: 'lazy';
+  color: solid #ffa23e;;;
   margin: 6px 28px;
   font-size: 36px;
   margin-bottom: 70px;
@@ -21,7 +22,9 @@
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  border: 3px rgb(0, 0, 0) solid;
+  border: 3px #ffa23e;
+  color: #ffa23e;
+
 }
 .botonhome{
   margin-top: 30px;
@@ -41,17 +44,24 @@
 
 .main-container h1 {
   font-size: 32px;
+  font-family: 'lazy';
   margin-bottom: 8px;
+  color: white;
+
 }
 
 .main-container h2 {
   font-size: 20px;
-  color: #ffffff;
+  font-family: 'lazy';
+  color: #ffa23e;
 }
 
 .main-container h3 {
   font-size: 20px;
+  font-family: 'lazy';
   margin-bottom: 8px;
+  color: #ffa23e;
+
 }
 
 error-message {
@@ -69,3 +79,8 @@ error-message {
   background-image: url(C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Pages\Detail\house-chimney-solid.svg);
   background-repeat: no-repeat;
 }
+@font-face {
+  font-family: 'lazy';
+  src: url('C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Pages\Detail\Lazy Monday.otf') format('woff2'),
+       url('C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Pages\Detail\Lazy Monday.otf') format('woff');
+}  

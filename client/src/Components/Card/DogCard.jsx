@@ -1,25 +1,27 @@
+import Atropos from 'atropos/react';
 import "./Card.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
-
-function DogCard(props) {
-  const { id, name, image, temperament, weight } = props.dog;
-  
+function DogCard({ dog }) {
+  const { id, name, image, temperament, weight } = dog;
 
   return (
-    <div className="card">
+    
+    <Atropos  className="card">
       <Link to={`/detail/${id}`}>
-        <img
-          src={image}
-          alt={name}
-        />
-    </Link>
-        <h2>{name}</h2>
-        <h3>Temperaments: {temperament}</h3>
-        <h4>Peso: {weight} KG</h4>
-      </div>
+        <img className="cardimg"src={image} alt={name} />
+      </Link>
+      <h2 className='namedog'>{name}</h2>
+      <div className='dogstex'>Temperaments: {temperament}
+      <  > 
+      </ >
+
+      <> 
+      </>        Peso: {weight} KG</div>
+    </Atropos>
   );
 }
 
 export default DogCard;
+

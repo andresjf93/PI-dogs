@@ -8,8 +8,9 @@ import {
   CREATE_DOG,
   FETCH_TEMPERAMENTS_SUCCESS,
   FILTER_BY_TEMPERAMENT,
-  SEARCH_DOGS_REDUX,
-  RESET_FILTERS
+  RESET_FILTERS,
+  APIDOGS,
+  DBDOGS,
 } from "./actionTypes";
 import axios from "axios";
 
@@ -17,38 +18,40 @@ export const allDogs = () => {
   return async function (dispatch) {
     try {
       const { data } = await axios.get("http://localhost:3001/Dogs");
-      console.log(data);
       dispatch({
         type: ALL_DOGS,
         payload: data,
       });
     } catch (error) {
-      console.log(error);
+      alert("ERROR al cargar los PERROS de la API");
     }
   };
 };
-export const searchDogsRedux = (obj) => {
+export const apiDb = () => {
   return {
-    type: SEARCH_DOGS_REDUX,
-    payload: obj,
+    type: APIDOGS,
+  };
+};
+export const searchDb = () => {
+  return {
+    type: DBDOGS,
   };
 };
 export const filterTemperament = (temperament) => {
   return { type: FILTER_BY_TEMPERAMENT, payload: temperament };
 };
-//Accion para buscar perros
 export const searchDogs = (name) => {
   return async function (dispatch) {
     try {
       const { data } = await axios.get(
-        `http://localhost:3001/Dogs/name?name=${name}`
+        `http://localhost:3001/dogs/name/?name=${name}`
       );
       dispatch({
         type: SEARCH_DOGS,
         payload: data,
       });
     } catch (error) {
-      console.log(error);
+      alert( "NOMBRE del perro no encontrado");
     }
   };
 };
@@ -60,16 +63,14 @@ export const fetchTemperaments = () => {
       if (!response.ok) {
         throw new Error("Error al obtener los temperamentos.");
       }
-
       const data = await response.json();
-
-      // Dispatch la acción con los temperamentos obtenidos
       dispatch({ type: FETCH_TEMPERAMENTS_SUCCESS, payload: data });
-    } catch (error) {}
+    } catch (error) {
+      alert("ERROR no se pudo traer los temperamentos");
+    }
   };
 };
 
-// Acción para aplicar el ordenamiento
 export function setOrder(order) {
   return {
     type: ORDER_A_Z,
@@ -85,12 +86,17 @@ export const createDog = (dog) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post("http://localhost:3001/dogs", dog);
+      const pepe = {
+        ...data,
+        height: JSON.parse(data.height),
+        weight: JSON.parse(data.weight),
+      };
       dispatch({
         type: CREATE_DOG,
-        payload: data,
+        payload: pepe,
       });
     } catch (error) {
-      console.log(error);
+      alert("error al crear un Perro en la BD")
     }
   };
 };
@@ -105,7 +111,6 @@ export function next() {
     type: NEXT,
   };
 }
-//!resetFilterAll
 export const resetFilterAll = () => {
   return { type: RESET_FILTERS };
 };

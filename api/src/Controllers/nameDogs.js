@@ -1,5 +1,5 @@
 require("dotenv").config();
-const Sequelize = require("sequelize");
+const {Op} = require("sequelize");
 const axios = require("axios");
 const { API_KEY } = process.env;
 const { Dog, Temperament } = require("../db");
@@ -52,12 +52,12 @@ const getNameDogs= async (req, res) => {
     });
 
     if (dogsMap.length > 0) {
-      res.status(STATUS_OK).json(dogsMap);
+      res.status(200).json(dogsMap);
     } else {
-      res.status(STATUS_ERROR).json({ message: 'No se encontró una raza de perro con el nombre especificado.' });
+      res.status(404).json({ message: 'No se encontró una raza de perro con el nombre especificado.' });
     }
   } catch (error) {
-    res.status(STATUS_ERROR).json({ error: error.message});
+    res.status(400).json({ error: error.message});
 }
 }
   module.exports = getNameDogs

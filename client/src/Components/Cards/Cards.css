@@ -1,18 +1,16 @@
-/* Estilos para el contenedor de las tarjetas */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  background-color: #0885b2;
 }
 
-/* Estilos para la paginación */
 .pagination {
   display: flex;
   margin-top: 10px;
   flex-direction: column;
 }
 
-/* Estilos para los botones de la paginación */
 .paginate {
   margin: 0 5px;
 }

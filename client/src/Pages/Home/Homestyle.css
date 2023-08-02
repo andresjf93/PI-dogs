@@ -3,11 +3,19 @@
    
     background-color: #f0f0f0;
     padding: 2px;
+    background-color: #0885b2;
+
   }
   
   .home-page h1 {
-    color: #333;
+    color: black;
+    font-family: 'angel';
     font-size: 24px;
+    font-weight: bold;
     margin-bottom: 10px;
   }
-  
+  @font-face {
+    font-family: 'angel';
+    src: url('C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Pages\Home\Duskey Rough.ttf') format('woff2'),
+         url('C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Pages\Home\Duskey Rough.ttf') format('woff');
+  }  

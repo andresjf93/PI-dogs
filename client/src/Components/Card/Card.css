@@ -1,41 +1,41 @@
 
-/* Estilos para cada card */
+
 .card {
-  width: 250px; /* Ajusta el ancho deseado para cada card */
-  height: 360px; /* Ajusta el alto deseado para cada card */
-  border: 5px solid orange;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 20px; /* Espaciado entre las cards, puedes ajustarlo según tu preferencia */
+  width: 256px;
+  height: 315px;
+  padding: 7px;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
-  
+  background-color: #212121;
+  border-radius: 10%;
 }
 
-/* Estilos para la imagen dentro de la card */
-.card img {
-  width: 100%;
-  height: 200px; /* Ajusta la altura de la imagen según tus necesidades */
-  object-fit: cover; /* Ajusta el recorte de la imagen para que se ajuste al contenedor */
-  border-radius: 5px;
-  margin-bottom: 10px; /* Espaciado entre la imagen y el resto del contenido */
+.cardimg {
+  width: 226px;
+  height: 163px;
+  object-fit: contain;
+  border-radius: 31px;
+  margin-bottom: 2px;
 }
 
-/* Estilos para el título y los párrafos dentro de la card */
-.card h2 {
+.namedog {
   margin: 0;
   font-size: 16px;
   background-color: orange;
 }
-.card h3{
-  background-color: grey;
-   width: 250px; /* Ajusta el ancho deseado para cada card */
+
+.dogstex{
+   width: 250px; 
   height: 360px;
   margin: 0;
+  color: white;
+  border: 3px solid #ffa23e;
+  border-end-end-radius: 50%;
 }
-.card h4{
-  margin: 0;
-  width: 245px; /* Ajusta el ancho deseado para cada card */
-  height: 360px;
-  border: 3px solid orange;
+.dogstex2{
+  width: 250px; 
+ height: 360px;
+ margin: 0;
+ color: white
 }

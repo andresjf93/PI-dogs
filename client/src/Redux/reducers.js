@@ -8,43 +8,56 @@ import {
   CREATE_DOG,
   FETCH_TEMPERAMENTS_SUCCESS,
   FILTER_BY_TEMPERAMENT,
-  SEARCH_DOGS_REDUX,
+  RESET_FILTERS,
+  APIDOGS,
+  DBDOGS,
 } from "./actionTypes";
 
+
 const initialState = {
-  origDogs: [], // Array con las razas de perros obtenidas desde la API o la base de datos
+  origDogs: [],
+  apiDogs: [],
+  dbDogs: [],
   Dogs: [],
-  Search: [], // Filtro aplicado para la búsqueda por nombre
+  Search: [],
   numPage: 1,
   temperament: [],
   loading: false,
   error: null,
 };
 
-const allDogs = (state = initialState, action) => {
+const allDogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ALL_DOGS:
       return {
         ...state,
-        origDogs: action.payload,
+        origDogs: [...action.payload],
+        Dogs: [...action.payload],
+        apiDogs: [...action.payload],
+        
+      };
+
+    case SEARCH_DOGS:
+      return {
+        ...state,
         Dogs: action.payload,
       };
-    case SEARCH_DOGS:
-      console.log(state.Dogs);
-      return {
+      case APIDOGS: 
+      return{
         ...state,
-        Dogs: [...action.payload],
-      };
-    case SEARCH_DOGS_REDUX:
-      return {
-        ...state,
-        Dogs: [...action.payload],
-      };
+        Dogs: [...state.apiDogs],
+      }
+  case DBDOGS:
+  return {
+    ...state,
+    Dogs:[...state.dbDogs],
+  }
     case CREATE_DOG:
       return {
         ...state,
         Dogs: [action.payload, ...state.Dogs],
-        origDogs: [action.payload, ...state.origDogs],
+        dbDogs: [...state.dbDogs, action.payload],
+        origDogs:[ ...state.origDogs, action.payload],
       };
     case FILTER_BY_TEMPERAMENT:
       return {
@@ -52,7 +65,7 @@ const allDogs = (state = initialState, action) => {
         Dogs: [...state.origDogs].filter((dogfil) =>
           dogfil.temperament
             ? dogfil.temperament.includes(action.payload)
-            : null
+            : false
         ),
       };
     case FETCH_TEMPERAMENTS_SUCCESS:
@@ -65,58 +78,41 @@ const allDogs = (state = initialState, action) => {
     case ORDER_A_Z:
       return {
         ...state,
-        Dogs: [...state.Dogs].sort((a, b) => {
-          if (action.payload === "A") {
-            if (a.name > b.name) {
-              return 1;
-            }
-            if (a.name < b.name) {
-              return -1;
-            }
-            return 0;
-          } else {
-            if (a.name < b.name) {
-              return 1;
-            }
-            if (a.name > b.name) {
-              return -1;
-            }
-            return 0;
-          }
-        }),
+        Dogs: [...state.Dogs].sort((a, b) =>
+          action.payload === "A"
+            ? a.name.localeCompare(b.name)
+            : b.name.localeCompare(a.name)
+        ),
       };
     case SET_ORDER_WEIGHT:
-      let orderWeight = [...state.Dogs];
       return {
         ...state,
-        Dogs:
+        Dogs: [...state.Dogs].sort((a, b) =>
           action.payload === "WEIGHT"
-            ? orderWeight.sort(
-                (a, b) =>
-                  Number(b.weight.split("-")[1]) -
-                  a.weight.split("-")[1]
-              )
-            : orderWeight.sort(
-                (a, b) =>
-                  Number(a.weight.split("-")[1]) -
-                  b.weight.split("-")[1]
-              ),
+            ? Number(b.weight.split("-")[1]) - Number(a.weight.split("-")[1])
+            : Number(a.weight.split("-")[1]) - Number(b.weight.split("-")[1])
+        ),
       };
     case PREV:
-      // Reducir el número de página actual en 1
       return {
         ...state,
-        numPage: state.numPage - 1,
+        numPage: Math.max(state.numPage - 1, 1),
       };
     case NEXT:
-      // Aumentar el número de página actual en 1
       return {
         ...state,
         numPage: state.numPage + 1,
       };
-    default:
+    case RESET_FILTERS:
+      return {
+        ...state,
+        Dogs: [ ...state.origDogs],
+        numPage: 1,
+      };
+    default:    
+
       return state;
   }
 };
 
-export default allDogs;
+export default allDogsReducer;

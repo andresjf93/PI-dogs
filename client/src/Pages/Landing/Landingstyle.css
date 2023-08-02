@@ -1,33 +1,39 @@
-
 .landing-page {
- 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-image: url("./welcomedog.jpg");
-  background-size: cover;
-  background-position: center;
+  height: 94vh;
+  background-image: url(./landing.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
   color: #000000;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  align-content: start;
+  padding-left: 10%;
 }
 
 .landing-page h1 {
-  font-size: 36px;
+  font-family: 'shlop rg', Arial, sans-serif;
+  font-size: 83px;
   margin-bottom: 70px;
+  color:black;
 }
 
 .boton {
   padding: 27px 27px;
   border-radius: 9px;
   background-color: transparent;
-  background-image: url(C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Pages\Landing\paw-solid.svg);
+  background-image: url("C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Pages\Landing\paw-solid.svg");
   background-repeat: no-repeat;
-
 }
 
 .landing-page button:hover {
   background-color: transparent;
   padding: 32px 32px;
 }
-
+@font-face {
+  font-family: 'shlop rg';
+  src: url('C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Pages\Landing\Anime Kids - Personal Use.otf') format('woff2'),
+       url('C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Pages\Landing\Anime Kids - Personal Use.otf') format('woff');
+}

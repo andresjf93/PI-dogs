@@ -1,22 +1,19 @@
 .filter-options {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
 }
-nav {
-  display: flex;
-  align-items: center;
-}
+
 .barr {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 98%;
+  border-radius: 21px;
+  padding: 5px;
+  background-color: #212121;
+  box-shadow: 12px 25px 1px rgba(0, 0, 0, 0.1);
 }
 .titulo {
   font-size: 18px;
@@ -25,29 +22,40 @@ nav {
 }
 
 .selectmultiple {
-  height: 100px;
-  width: 200px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  height: 53px;
+  width: 193px;
+  border: 4px solid #ffa23e;
+  border-radius: 20px;
+  margin: 12px;
   padding: 5px;
+  color: white;
+  background-color: #212121;
 }
 select{
+  border-radius: inherit;
   font-size: 20px;
+  background-color: #f5c48f;
 }
-button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
+select :hover{
+  background-color: #0885b2;
+
+}
+.reset {
+  display: flex;
+  background-color: #FFAE36;
+  border-radius: 39px;
+  padding: 22px 7px;
   cursor: pointer;
+  color: #fff;
+  margin-top: 2px;
+  background-image: url("C:\Users\USUARIO\OneDrive\Desktop\PI\PI-Dogs-main\PI-Dogs-main\client\src\Components\Filtro y Ordenado\rotate-solid.svg");
+  background-repeat: no-repeat;
 }
-select[name="tipo-busqueda"],
-select[name="orden-alfabetico"],
-select[name="orden-por-peso"] {
-  margin-left: 10px;
-  padding: 5px;
+.reset :hover{
+  background-color: #64adfc
 }
+
+
 
 /* Estilos para los options de los select de tipo de búsqueda */
 select[name="tipo-busqueda"] option,
