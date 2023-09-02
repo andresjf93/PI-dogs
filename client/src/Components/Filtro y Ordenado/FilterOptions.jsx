@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./FilterBar.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,6 +8,7 @@ import {
   resetFilterAll,
   apiDb,
   searchDb,
+  
 } from "../../Redux/actions";
 
 const FilterOptions = () => {
@@ -41,7 +42,9 @@ if (event.target.value==="api") {
     dispatch(resetFilterAll());
   };
 
-  return (
+    
+  
+        return (
     <div className="filter-options">
       <nav className="barr">
         <div className="selectmultiple">FILTER TEMPERAMENTOS

@@ -11,6 +11,7 @@ import {
   RESET_FILTERS,
   APIDOGS,
   DBDOGS,
+  RESET_PAG,
 } from "./actionTypes";
 import axios from "axios";
 
@@ -106,6 +107,11 @@ export function prev() {
     type: PREV,
   };
 }
+/*export function resetPag(){
+  return{
+    type:  RESET_PAG,
+  }
+}*/
 export function next() {
   return {
     type: NEXT,

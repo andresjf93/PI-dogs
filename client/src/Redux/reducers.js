@@ -11,6 +11,7 @@ import {
   RESET_FILTERS,
   APIDOGS,
   DBDOGS,
+  RESET_PAG,
 } from "./actionTypes";
 
 
@@ -98,6 +99,10 @@ const allDogsReducer = (state = initialState, action) => {
         ...state,
         numPage: Math.max(state.numPage - 1, 1),
       };
+     /* case RESET_PAG:
+        return{
+          numPage: 1
+        }*/
     case NEXT:
       return {
         ...state,
