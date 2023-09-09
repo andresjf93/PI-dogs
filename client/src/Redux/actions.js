@@ -18,7 +18,7 @@ import axios from "axios";
 export const allDogs = () => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.get("http://localhost:3001/Dogs");
+      const { data } = await axios.get("https://andresjf93.pi.dog/Dogs");
       dispatch({
         type: ALL_DOGS,
         payload: data,
@@ -45,7 +45,7 @@ export const searchDogs = (name) => {
   return async function (dispatch) {
     try {
       const { data } = await axios.get(
-        `http://localhost:3001/dogs/name/?name=${name}`
+        `https://andresjf93.pi.dog/dogs/name/?name=${name}`
       );
       dispatch({
         type: SEARCH_DOGS,
@@ -60,7 +60,7 @@ export const searchDogs = (name) => {
 export const fetchTemperaments = () => {
   return async (dispatch) => {
     try {
-      const response = await fetch("http://localhost:3001/temperament");
+      const response = await fetch("https://andresjf93.pi.dog/temperament");
       if (!response.ok) {
         throw new Error("Error al obtener los temperamentos.");
       }
@@ -86,7 +86,7 @@ export const setOrderWeight = (payload) => ({
 export const createDog = (dog) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post("http://localhost:3001/dogs", dog);
+      const { data } = await axios.post("https://andresjf93.pi.dog/dogs", dog);
       const pepe = {
         ...data,
         height: JSON.parse(data.height),
