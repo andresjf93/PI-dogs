@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 function DogCard({ dog }) {
   const { id, name, image, temperament, weight } = dog;
 
+  
   return (
     
     <Atropos  className="card">
