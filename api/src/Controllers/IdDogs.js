@@ -1,15 +1,14 @@
 require("dotenv").config();
 const Sequelize = require("sequelize");
 const axios = require("axios");
-const { API_KEY } = process.env;
+const { API_KEY, URL_API } = process.env;
 const { Dog, Temperament } = require("../db");
 
-const URL = `https://api.thedogapi.com/v1/breeds`;
 
 const getIDDogs = async (req, res) => {
   try {
     const { id } = req.params;
-    const resultDogs = await axios.get(`${URL}`);
+    const resultDogs = await axios.get(`${URL_API}?api_key=${API_KEY}`);
     const allDogs = resultDogs.data;
     const dogsMap = [];
     allDogs.forEach((dog) => {

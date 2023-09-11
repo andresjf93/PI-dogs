@@ -18,7 +18,7 @@ import axios from "axios";
 export const allDogs = () => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.get("https://pi-dogs-andresjf93.netlify.app/Dogs");
+      const { data } = await axios.get("http://localhost:3001/Dogs");
       dispatch({
         type: ALL_DOGS,
         payload: data,
@@ -45,7 +45,7 @@ export const searchDogs = (name) => {
   return async function (dispatch) {
     try {
       const { data } = await axios.get(
-        `https://pi-dogs-andresjf93.netlify.app/dogs/name/?name=${name}`
+        `http://localhost:3001/dogs/name/?name=${name}`
       );
       dispatch({
         type: SEARCH_DOGS,
