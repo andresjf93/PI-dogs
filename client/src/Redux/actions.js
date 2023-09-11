@@ -60,7 +60,7 @@ export const searchDogs = (name) => {
 export const fetchTemperaments = () => {
   return async (dispatch) => {
     try {
-      const response = await fetch("https://pi-dogs-andresjf93.netlify.app/temperament");
+      const response = await fetch("http://localhost:3001/temperament");
       if (!response.ok) {
         throw new Error("Error al obtener los temperamentos.");
       }
@@ -86,7 +86,7 @@ export const setOrderWeight = (payload) => ({
 export const createDog = (dog) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post("https://pi-dogs-andresjf93.netlify.app/dogs", dog);
+      const { data } = await axios.post("http://localhost:3001/dogs", dog);
       const pepe = {
         ...data,
         height: JSON.parse(data.height),
