@@ -2,11 +2,11 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_URL_URL } = process.env;
+
 
 
 const sequelize = new Sequelize(
-  `${DB_URL_URL}`,
+  `postgres://fl0user:wY5CjOfsm3rN@ep-dry-mountain-06663113.ap-southeast-1.aws.neon.fl0.io:5432/database?sslmode=require`,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
